@@ -39,7 +39,7 @@ connection.connect((error) => {
   }
 })
 
-// http://localhost:4000/add/destination
+// https://travelix-website.onrender.com/add/destination
 app.post("/add/destination", (request, response) => {
   const form = request.body;
   const sqlQuery = `insert into destinationList (destinationName, destinationImage, destinationCount) values ('${form.destinationName}', '${form.destinationImage}', '${form.destinationCount}')`;
@@ -56,7 +56,7 @@ app.post("/add/destination", (request, response) => {
   })
 })
 
-// http://localhost:4000/list/destination
+// https://travelix-website.onrender.com/list/destination
 app.get("/list/destination", (request,  response) => {
 
   const destinationName = request.query.destinationName;
@@ -82,7 +82,7 @@ app.get("/list/destination", (request,  response) => {
   })
 })
 
-// http://localhost:4000/delete/destination/1
+// https://travelix-website.onrender.com/delete/destination/1
 app.delete("/delete/destination/:id", (request, response) => {
   const recordId = request.params.id;
 
@@ -103,7 +103,7 @@ app.delete("/delete/destination/:id", (request, response) => {
 
 
 
-// http://localhost:4000/add/hotel
+// https://travelix-website.onrender.com/add/hotel
 app.post("/add/hotel", (request, response) => {
   const form = request.body;
   const sqlQuery = `insert into hotelList (hotelName, hotelImage, hotelLocation, hotelPrice) values ('${form.hotelName}', '${form.hotelImage}', '${form.hotelLocation}', '${form.hotelPrice}')`;
@@ -120,14 +120,14 @@ app.post("/add/hotel", (request, response) => {
   })
 })
 
-// http://localhost:4000/list/hotel
+// https://travelix-website.onrender.com/list/hotel
 app.get("/list/hotel", (request,  response) => {
 
-  const hotelName = request.query.hotelName;
+  const hotelLocation = request.query.hotelLocation;
 
   let sqlQuery = "";
 
-  if(hotelName == undefined){
+  if(hotelLocation == undefined){
      sqlQuery = `select * from hotelList`;
   }
   else{
@@ -146,7 +146,7 @@ app.get("/list/hotel", (request,  response) => {
   })
 })
 
-// http://localhost:4000/delete/hotel/1
+// https://travelix-website.onrender.com/delete/hotel/1
 app.delete("/delete/hotel/:id", (request, response) => {
   const recordId = request.params.id;
 
